@@ -3,6 +3,15 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
+
+const apiUrl = "https://prm2ykvwe8.microcms.io/api/v1/works";
+const baseHeaders ={
+	headers:{"X-MICROCMS-API-KEY" : "e5286cb7434f40bcbaca4b625c68f8a974a4"}
+}
+const response = await fetch(apiUrl,baseHeaders);
+const works = await response.json().then(data=> data.works);
+console.log(works);
+
 ---
 
 <!DOCTYPE html>
