@@ -1,0 +1,59 @@
+.card-container{
+  box-shadow: 5px 5px 10px  gray ;
+  border-radius: 10px;
+  transition-duration: 0.3s;
+}
+.card-container:hover{
+  transform: scale(1.01);
+  transition-duration: 0.3s;
+}
+.card-header{
+  padding: 0em 0.8em;
+  border-radius: 10px 10px 0px 0px;
+  color: white;
+  background: #56BEAE;
+  display: flex;
+  justify-content: space-between;
+}
+.title{
+  color: white;
+}
+.card-main{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 2em;
+}
+
+.developer{
+  font-size: smaller;
+  margin-top: auto;
+}
+
+.technology-container{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.technology{
+  font-size: smaller;
+  color: white;
+  padding: 0.5em 0.8em;
+  border-radius: 20em;
+  background-color:gray;
+}
+
+.link-container{
+  display: flex;
+  margin-left: auto;
+  margin-top: 3em;
+}
+.link{
+  font-weight: bolder;
+  padding: 0.5em 0.8em;
+  color: white;
+  background-color: #56BEAE;
+  text-decoration: none;
+  border-radius: 0.5em;
+}
