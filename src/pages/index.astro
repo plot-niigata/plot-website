@@ -5,6 +5,7 @@ import Header from "../components/Header.astro";
 import Work from "../components/work/Work.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+import type { Work as WorkType } from "../types/global";
 
 const apiUrl = "https://prm2ykvwe8.microcms.io/api/v1/works";
 const baseHeaders = {
@@ -23,11 +24,12 @@ const works = await response.json().then((data) => data.works);
     <Header title={SITE_TITLE} />
     <main>
       {
-        works.map((work) => {
+        works.map((work :WorkType) => {
           return <Work work={work} />;
         })
       }
     </main>
+    
     <Footer />
   </body>
 </html>

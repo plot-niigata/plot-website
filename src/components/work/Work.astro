@@ -1,22 +1,8 @@
 ---
+import type { Work } from "../../types/global";
 import style from "./Work.module.css"
-export interface Props{
-  fieldId :string;
-  title: string;
-  image: {
-    url:string;
-    height:number;
-    width: number;
-  }
-  description: string;
-  link: string;
-  developer: string;
-  technologies: Array<{
-    fieldId: string;
-    technology: string;
-  }>
-}
-const work :Props = Astro.props;
+export type Props = {work:Work};
+const { work } = Astro.props;
 
 ---
 

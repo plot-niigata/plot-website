@@ -5,9 +5,10 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && tsc --noEmit && astro build",
+    "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "check": "astro check && tsc --noEmit"
   },
   "dependencies": {
     "@astrojs/mdx": "^0.11.1",
@@ -21,6 +22,6 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@astrojs/image": "^0.6.0"
+    "@astrojs/image": "^0.7.0"
   }
 }
