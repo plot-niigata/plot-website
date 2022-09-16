@@ -1,32 +1,33 @@
 ---
-import  "@fontsource/noto-sans-jp"
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Work from '../components/work/Work.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
+import "@fontsource/noto-sans-jp";
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Work from "../components/work/Work.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 
 const apiUrl = "https://prm2ykvwe8.microcms.io/api/v1/works";
-const baseHeaders ={
-	headers:{"X-MICROCMS-API-KEY" : "e5286cb7434f40bcbaca4b625c68f8a974a4"}
-}
-const response = await fetch(apiUrl,baseHeaders);
-const works = await response.json().then(data=> data.works);
-
+const baseHeaders = {
+  headers: { "X-MICROCMS-API-KEY": "e5286cb7434f40bcbaca4b625c68f8a974a4" },
+};
+const response = await fetch(apiUrl, baseHeaders);
+const works = await response.json().then((data) => data.works);
 ---
 
 <!DOCTYPE html>
 <html lang="ja">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header title={SITE_TITLE} />
-		<main>
-			{works.map(work =>{
-				return <Work work={work}/>
-			})}
-		</main>
-		<Footer />
-	</body>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header title={SITE_TITLE} />
+    <main>
+      {
+        works.map((work) => {
+          return <Work work={work} />;
+        })
+      }
+    </main>
+    <Footer />
+  </body>
 </html>
