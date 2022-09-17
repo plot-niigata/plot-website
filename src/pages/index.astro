@@ -28,6 +28,12 @@ const detailButton: Style = {
   border: "solid 2px purple",
   bordreRadius: "5px",
 };
+const aboutButton: Style = {
+  color: "purple",
+  fontSize: "x-large",
+  border: "solid 2px purple",
+  bordreRadius: "50px",
+};
 ---
 
 <style>
@@ -37,6 +43,12 @@ const detailButton: Style = {
   }
   .Ltype span {
     writing-mode: vertical-rl;
+  }
+  .flex-section {
+    display: flex;
+  }
+  .bg-gray{
+    background-color: #F1F1F1;
   }
   .flex {
     display: flex;
@@ -60,8 +72,8 @@ const detailButton: Style = {
   .margin-bottom-auto {
     margin-bottom: auto;
   }
-    @media screen and (max-width: 959px) {
-    .flex {
+  @media screen and (max-width: 959px) {
+    .flex-section {
       flex-direction: column;
     }
   }
@@ -73,25 +85,34 @@ const detailButton: Style = {
   <Header title={SITE_TITLE} />
   <main>
     <section id="home">
-      <div class="flex jsutify-space-around">
+      <div class="flex-section jsutify-space-around">
         <h1 class="Ltype"><span>失敗を</span>楽しもう</h1>
 
         <div class="flex column">
           <p class="text-align-center">ロゴ</p>
           <div class="flex column margin-top-auto">
-            <Button name={"入部する"} href={"/about"} style={joinButton} />
-            <Button name={"PLOTとは"} href={"#about"} style={detailButton} />
+            <Button name="入部する" href="/about" style={joinButton} />
+            <Button name="PLOTとは" href="#about" style={detailButton} />
           </div>
         </div>
       </div>
     </section>
-    <section id="about">
-      {
-        works.map((work: WorkType) => {
-          return <Work work={work} />;
-        })
-      }
+    <section id="about" class="bg-gray">
+      <div class="flex-section jsutify-space-around">
+        <div class="text-align-center ">
+          <h3>失敗を楽しもう</h3>
+          <h2>PLOTとは</h2>
+          <p>活動内容や目標など<br />PLOTのサークル概要をご紹介。</p>
+          <Button name="more" href="/about" style={aboutButton}/>
+        </div>
+        <img src="/public/placeholder-hero.jpg" alt="">
+      </div>
     </section>
+    {
+      works.map((work: WorkType) => {
+        return <Work work={work} />;
+      })
+    }
 
     <Footer />
   </main>
