@@ -15,31 +15,84 @@ const baseHeaders = {
 const response = await fetch(apiUrl, baseHeaders);
 const works = await response.json().then((data) => data.works);
 
-const joinButton:Style = {
-  color:"white",
-  fontSize:"large",
-  backgroundColor:"orange",
-  bordreRadius:"5px",
-}
+const joinButton: Style = {
+  color: "white",
+  fontSize: "large",
+  backgroundColor: "orange",
+  bordreRadius: "5px",
+};
+
+const detailButton: Style = {
+  color: "purple",
+  fontSize: "large",
+  border: "solid 2px purple",
+  bordreRadius: "5px",
+};
 ---
 
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body>
-    <Header title={SITE_TITLE} />
-    <main>
+<style>
+  .Ltype {
+    font-feature-settings: "palt";
+    font-size: 10vh;
+  }
+  .Ltype span {
+    writing-mode: vertical-rl;
+  }
+  .flex {
+    display: flex;
+  }
+
+  .column {
+    flex-direction: column;
+  }
+  .jsutify-center {
+    justify-content: center;
+  }
+  .jsutify-space-around {
+    justify-content: space-around;
+  }
+  .text-align-center {
+    text-align: center;
+  }
+  .margin-top-auto {
+    margin-top: auto;
+  }
+  .margin-bottom-auto {
+    margin-bottom: auto;
+  }
+    @media screen and (max-width: 959px) {
+    .flex {
+      flex-direction: column;
+    }
+  }
+</style>
+
+<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+
+<body>
+  <Header title={SITE_TITLE} />
+  <main>
+    <section id="home">
+      <div class="flex jsutify-space-around">
+        <h1 class="Ltype"><span>失敗を</span>楽しもう</h1>
+
+        <div class="flex column">
+          <p class="text-align-center">ロゴ</p>
+          <div class="flex column margin-top-auto">
+            <Button name={"入部する"} href={"/about"} style={joinButton} />
+            <Button name={"PLOTとは"} href={"#about"} style={detailButton} />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="about">
       {
-        works.map((work :WorkType) => {
+        works.map((work: WorkType) => {
           return <Work work={work} />;
         })
       }
+    </section>
 
-      <Button name={"入部する"} href={"/about"} style={joinButton}/>
-    
     <Footer />
-    </main>
-  </body>
-</html>
+  </main>
+</body>
