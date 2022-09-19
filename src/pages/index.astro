@@ -2,18 +2,11 @@
 import "@fontsource/noto-sans-jp";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
-import Work from "../components/work/Work.astro";
 import Button from "../components/Button.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 import type { Style, Work as WorkType } from "../types/global";
-
-const apiUrl = "https://prm2ykvwe8.microcms.io/api/v1/works";
-const baseHeaders = {
-  headers: { "X-MICROCMS-API-KEY": "e5286cb7434f40bcbaca4b625c68f8a974a4" },
-};
-const response = await fetch(apiUrl, baseHeaders);
-const works = await response.json().then((data) => data.works);
+import WorksSlider from "../components/WorksSlider";
 
 const joinButton: Style = {
   color: "white",
@@ -37,18 +30,11 @@ const aboutButton: Style = {
 ---
 
 <style>
-  .Ltype {
-    font-feature-settings: "palt";
-    font-size: 10vh;
-  }
-  .Ltype span {
-    writing-mode: vertical-rl;
-  }
   .flex-section {
     display: flex;
   }
-  .bg-gray{
-    background-color: #F1F1F1;
+  .bg-gray {
+    background-color: #f1f1f1;
   }
   .flex {
     display: flex;
@@ -62,6 +48,9 @@ const aboutButton: Style = {
   }
   .jsutify-space-around {
     justify-content: space-around;
+  }
+  .align-item-center{
+    align-items: center;
   }
   .text-align-center {
     text-align: center;
@@ -98,20 +87,28 @@ const aboutButton: Style = {
     </section>
     <section id="about" class="bg-gray">
       <div class="flex-section jsutify-space-around">
-        <div class="text-align-center ">
+        <div class="text-align-center">
           <h3>失敗を楽しもう</h3>
           <h2>PLOTとは</h2>
           <p>活動内容や目標など<br />PLOTのサークル概要をご紹介。</p>
-          <Button name="more" href="/about" style={aboutButton}/>
+          <Button name="more" href="/about" style={aboutButton} />
         </div>
-        <img src="/public/placeholder-hero.jpg" alt="">
+        <img src="/public/placeholder-hero.jpg" alt="" />
       </div>
     </section>
-    {
-      works.map((work: WorkType) => {
-        return <Work work={work} />;
-      })
-    }
+    <section id="about">
+      <div class="flex-section jsutify-space-around align-item-center">
+      <div class="flex jsutify-center">
+        <WorksSlider client:only="react"/>
+      </div>
+        <div class="text-align-center">
+          <h3>開発物</h3>
+          <h2>WORKS</h2>
+          <p>アプリや事業など<br />PLOTの開発物をご紹介</p>
+          <Button name="more" href="/works" style={aboutButton} />
+        </div>
+      </div>
+    </section>
 
     <Footer />
   </main>

@@ -17,6 +17,8 @@
     "@astrojs/rss": "^1.0.0",
     "@astrojs/sitemap": "^1.0.0",
     "@fontsource/noto-sans-jp": "^4.5.11",
+    "@splidejs/react-splide": "^0.7.10",
+    "@splidejs/splide": "^4.0.17",
     "astro": "^1.1.5",
     "prettier": "^2.7.1",
     "react": "^18.2.0",
