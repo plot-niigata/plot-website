@@ -14,3 +14,17 @@ export type Work = {
     technology: string;
   }>;
 };
+
+export type Button = {
+  name: string;
+  href: string;
+  style: Style;
+};
+
+export type Style = {
+  color: string;
+  fontSize: string;
+  border?: string;
+  backgroundColor?: string;
+  bordreRadius: string;
+};

@@ -3,9 +3,10 @@ import "@fontsource/noto-sans-jp";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Work from "../components/work/Work.astro";
+import Button from "../components/Button.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
-import type { Work as WorkType } from "../types/global";
+import type { Style, Work as WorkType } from "../types/global";
 
 const apiUrl = "https://prm2ykvwe8.microcms.io/api/v1/works";
 const baseHeaders = {
@@ -13,6 +14,13 @@ const baseHeaders = {
 };
 const response = await fetch(apiUrl, baseHeaders);
 const works = await response.json().then((data) => data.works);
+
+const joinButton:Style = {
+  color:"white",
+  fontSize:"large",
+  backgroundColor:"orange",
+  bordreRadius:"5px",
+}
 ---
 
 <!DOCTYPE html>
@@ -28,8 +36,10 @@ const works = await response.json().then((data) => data.works);
           return <Work work={work} />;
         })
       }
-    </main>
+
+      <Button name={"入部する"} href={"/about"} style={joinButton}/>
     
     <Footer />
+    </main>
   </body>
 </html>

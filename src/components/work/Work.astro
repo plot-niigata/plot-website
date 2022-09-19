@@ -1,9 +1,16 @@
 ---
-import type { Work } from "../../types/global";
+import type { Style, Work } from "../../types/global";
+import Button from "../Button.astro";
 import style from "./Work.module.css"
 export type Props = {work:Work};
 const { work } = Astro.props;
 
+const linkButton:Style = {
+  color:"white",
+  fontSize:"large",
+  backgroundColor:"#56BEAE",
+  bordreRadius:"5px",
+}
 ---
 
 <div class={style["card-container"]}>
@@ -18,7 +25,7 @@ const { work } = Astro.props;
       {work.technologies.map(item=> {return <p class={style.technology}>{item.technology}</p>})}
     </div>
     <div class={style["link-container"]}>
-      <a class={style.link} href={work.link}>リンクはこちら</a>
+      <Button name="リンクはこちら" href={work.link} style={linkButton}/>
     </div>
   </div>
   </div>
