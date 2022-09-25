@@ -2,6 +2,7 @@
 import AboutCard from "../components/AboutCard.astro";
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
+import PageDetail from "../components/PageDetail.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 ---
 
@@ -12,46 +13,54 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
   </head>
 
   <body>
+    <PageDetail
+      title={"ABOUT"}
+      subTitle={"PLOTについて"}
+      descriptions={[
+        "あなたの必要なスキルは何ですか？",
+        "PLOTは沢山の情報を仲間と共有し合い、一人ひとりが成長できる場所となるように、エンジニアを目指す新潟大学生を中心に運営しているプログラミングサークルです。",
+        "スキルの向上はもちろん、分野問わず交流できるように活動をしています。また、学外の方でも気軽に参加できるようにオンラインでの活動も行っています。",
+      ]}
+    />
     <section class="card-section">
       <div class="card-container">
         <AboutCard
-        title={"競技プログラミング"}
-        logo={"/public/favicon.svg"}
-        link={"a"}
+          title={"競技プログラミング"}
+          logo={"/public/favicon.svg"}
+          link={"a"}
         />
         <AboutCard
-        title={"競技プログラミング"}
-        logo={"/public/favicon.svg"}
-        link={"a"}
+          title={"競技プログラミング"}
+          logo={"/public/favicon.svg"}
+          link={"a"}
         />
         <AboutCard
-        title={"競技プログラミング"}
-        logo={"/public/favicon.svg"}
-        link={"a"}
+          title={"競技プログラミング"}
+          logo={"/public/favicon.svg"}
+          link={"a"}
         />
         <AboutCard
-        title={"競技プログラミング"}
-        logo={"/public/favicon.svg"}
-        link={"a"}
-      />
-      <AboutCard
-      title={"競技プログラミング"}
-      logo={"/public/favicon.svg"}
-      link={"a"}
-      />
-      <AboutCard
-      title={"競技プログラミング"}
-      logo={"/public/favicon.svg"}
-      link={"a"}
-      />
-    </div>
+          title={"競技プログラミング"}
+          logo={"/public/favicon.svg"}
+          link={"a"}
+        />
+        <AboutCard
+          title={"競技プログラミング"}
+          logo={"/public/favicon.svg"}
+          link={"a"}
+        />
+        <AboutCard
+          title={"競技プログラミング"}
+          logo={"/public/favicon.svg"}
+          link={"a"}
+        />
+      </div>
     </section>
     <style>
-      .card-section{
+      .card-section {
         display: flex;
         justify-content: center;
         background-color: #f1f1f1;
-
       }
       .card-container {
         width: 80em;
