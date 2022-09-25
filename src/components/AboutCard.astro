@@ -1,0 +1,44 @@
+---
+const { title, logo, link } = Astro.props;
+---
+
+<div class="card">
+  <img src={logo} alt="" />
+  <h2>{title}</h2>
+  <div class="link-container">
+    <a href={link} class="link">→</a>
+  </div>
+</div>
+<style>
+  img {
+    width: 7em;
+    height: auto;
+  }
+
+  .card {
+    width: 15em;
+    height: auto;
+    padding: 1.5em 2em;
+    margin: 1em 2em;
+    background-color: white;
+    box-shadow: 5px 5px 10px gray;
+    border-radius: 10px;
+    text-align: center;
+  }
+  .link-container{
+    display: flex;
+   justify-content: flex-end;
+  }
+
+  .link{
+    font-size: 0.9em;
+    width: 1.1em;
+    display: block;
+    color: white;
+    font-weight: bold;
+    background-color: #848484;
+    text-decoration: none;
+    padding: 0.8em;
+    border-radius: 100%;
+  }
+</style>
