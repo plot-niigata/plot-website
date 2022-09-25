@@ -1,0 +1,28 @@
+---
+const { title, description, src, type } = Astro.props;
+---
+
+<section>
+  <h1>{title}</h1>
+  <p>{description}</p>
+  {type == "active" ? <img src={src} alt={title} /> : <iframe src={src} />}
+</section>
+
+<style>
+  h1 {
+    font-size: xxx-large;
+    border-bottom: 5px solid;
+    margin: auto 1em;
+  }
+  p {
+    text-align: center;
+    font-size: x-large;
+    font-weight: bold;
+    margin: 3em auto;
+  }
+  img {
+    display: block;
+    border-radius: 2em;
+    margin: 0 auto;
+  }
+</style>
