@@ -1,0 +1,29 @@
+---
+const { title, subTitle, descriptions } = Astro.props;
+---
+
+<section class="description-section">
+  <h2>{subTitle}</h2>
+  <h1>{title}</h1>
+  <br /><br />
+  {
+    descriptions.map((description: string) => {
+      return <p>{description}</p>;
+    })
+  }
+</section>
+<style>
+  .description-section {
+    text-align: center;
+    font-weight: bolder;
+    padding: 3em;
+  }
+  .description-section h1 {
+    font-size: xxx-large;
+    margin: 0 auto;
+  }
+  .description-section h2 {
+    font-size: x-large;
+    margin: 0 auto;
+  }
+</style>
