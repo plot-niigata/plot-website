@@ -12,44 +12,52 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
   </head>
 
   <body>
-    <div class="card-container">
-      <AboutCard
+    <section class="card-section">
+      <div class="card-container">
+        <AboutCard
+        title={"競技プログラミング"}
+        logo={"/public/favicon.svg"}
+        link={"a"}
+        />
+        <AboutCard
+        title={"競技プログラミング"}
+        logo={"/public/favicon.svg"}
+        link={"a"}
+        />
+        <AboutCard
+        title={"競技プログラミング"}
+        logo={"/public/favicon.svg"}
+        link={"a"}
+        />
+        <AboutCard
         title={"競技プログラミング"}
         logo={"/public/favicon.svg"}
         link={"a"}
       />
       <AboutCard
-        title={"競技プログラミング"}
-        logo={"/public/favicon.svg"}
-        link={"a"}
+      title={"競技プログラミング"}
+      logo={"/public/favicon.svg"}
+      link={"a"}
       />
       <AboutCard
-        title={"競技プログラミング"}
-        logo={"/public/favicon.svg"}
-        link={"a"}
-      />
-      <AboutCard
-        title={"競技プログラミング"}
-        logo={"/public/favicon.svg"}
-        link={"a"}
-      />
-      <AboutCard
-        title={"競技プログラミング"}
-        logo={"/public/favicon.svg"}
-        link={"a"}
-      />
-      <AboutCard
-        title={"競技プログラミング"}
-        logo={"/public/favicon.svg"}
-        link={"a"}
+      title={"競技プログラミング"}
+      logo={"/public/favicon.svg"}
+      link={"a"}
       />
     </div>
+    </section>
     <style>
-      .card-container {
+      .card-section{
         display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
+        justify-content: center;
         background-color: #f1f1f1;
+
+      }
+      .card-container {
+        width: 80em;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
       }
     </style>
     <Footer />
