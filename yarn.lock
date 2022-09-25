@@ -540,6 +540,18 @@
     estree-walker "^2.0.1"
     picomatch "^2.2.2"
 
+"@splidejs/react-splide@^0.7.10":
+  version "0.7.10"
+  resolved "https://registry.yarnpkg.com/@splidejs/react-splide/-/react-splide-0.7.10.tgz#2602f5044e43f7773af6abc735da199e9f5ff4a0"
+  integrity sha512-W83LCjbx0DTKCCCZGV9zTTnl80CDA7LOOg41rOpQ8NXuTBsDVAhqlQ8+bAvvBiclPbAgSi/dMMDkknA19Guq+A==
+  dependencies:
+    "@splidejs/splide" "^4.0.17"
+
+"@splidejs/splide@^4.0.17":
+  version "4.0.17"
+  resolved "https://registry.yarnpkg.com/@splidejs/splide/-/splide-4.0.17.tgz#7e6576d4643f496c0f00b589da1f47cab0ae8c77"
+  integrity sha512-k67vDY0+hl7Qi+I+juOF+DO1KuRw+4RfV5x5SlIVrK60DmMzQvp2j9CqDzixUw3jDDoEaPTGY4BKy5SZSiFf1Q==
+
 "@types/acorn@^4.0.0":
   version "4.0.6"
   resolved "https://registry.yarnpkg.com/@types/acorn/-/acorn-4.0.6.tgz#d61ca5480300ac41a7d973dd5b84d0a591154a22"
@@ -2864,7 +2876,7 @@ preferred-pm@^3.0.3:
     path-exists "^4.0.0"
     which-pm "2.0.0"
 
-prettier-plugin-astro@^0.5.3:
+prettier-plugin-astro@^0.5.3, prettier-plugin-astro@^0.5.4:
   version "0.5.4"
   resolved "https://registry.yarnpkg.com/prettier-plugin-astro/-/prettier-plugin-astro-0.5.4.tgz#0ccc510cdd260baf6346ccaf5956fb63d0b2bbd9"
   integrity sha512-ILs/WgUYtKBOn3Zh217/PwjCFtUWEKQjcCFJDevri0hGEBwEnnda9aqSLL0/nhCOmQn/UE7M9zLQvThu970ZHw==

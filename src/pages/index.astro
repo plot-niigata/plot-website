@@ -2,35 +2,115 @@
 import "@fontsource/noto-sans-jp";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
-import Work from "../components/work/Work.astro";
+import Button from "../components/Button.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
-import type { Work as WorkType } from "../types/global";
 import AboutCard from "../components/AboutCard.astro";
+import type { Style } from "../types/global";
+import WorksSlider from "../components/WorksSlider";
 
-const apiUrl = "https://prm2ykvwe8.microcms.io/api/v1/works";
-const baseHeaders = {
-  headers: { "X-MICROCMS-API-KEY": "e5286cb7434f40bcbaca4b625c68f8a974a4" },
+const joinButton: Style = {
+  color: "white",
+  fontSize: "large",
+  backgroundColor: "orange",
+  bordreRadius: "5px",
 };
-const response = await fetch(apiUrl, baseHeaders);
-const works = await response.json().then((data) => data.works);
+
+const detailButton: Style = {
+  color: "purple",
+  fontSize: "large",
+  border: "solid 2px purple",
+  bordreRadius: "5px",
+};
+const aboutButton: Style = {
+  color: "purple",
+  fontSize: "x-large",
+  border: "solid 2px purple",
+  bordreRadius: "50px",
+};
 ---
 
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body>
-    <Header title={SITE_TITLE} />
-    <main>
-      {
-        works.map((work :WorkType) => {
-          return <Work work={work} />;
-        })
-      }
-    </main>
-    
+<style>
+  .flex-section {
+    display: flex;
+  }
+  .bg-gray {
+    background-color: #f1f1f1;
+  }
+  .flex {
+    display: flex;
+  }
+
+  .column {
+    flex-direction: column;
+  }
+  .jsutify-center {
+    justify-content: center;
+  }
+  .jsutify-space-around {
+    justify-content: space-around;
+  }
+  .align-item-center{
+    align-items: center;
+  }
+  .text-align-center {
+    text-align: center;
+  }
+  .margin-top-auto {
+    margin-top: auto;
+  }
+  .margin-bottom-auto {
+    margin-bottom: auto;
+  }
+  @media screen and (max-width: 959px) {
+    .flex-section {
+      flex-direction: column;
+    }
+  }
+</style>
+
+<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+
+<body>
+  <Header title={SITE_TITLE} />
+  <main>
+    <section id="home">
+      <div class="flex-section jsutify-space-around">
+        <img src="/public/PLOT-home.svg" alt="メイン画像" width="850rem">
+        <div class="flex column">
+          <p class="text-align-center">ロゴ</p>
+          <div class="flex column margin-top-auto">
+            <Button name="入部する" href="/about" style={joinButton} />
+            <Button name="PLOTとは" href="#about" style={detailButton} />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="about" class="bg-gray">
+      <div class="flex-section jsutify-space-around">
+        <div class="text-align-center">
+          <h3>失敗を楽しもう</h3>
+          <h2>PLOTとは</h2>
+          <p>活動内容や目標など<br />PLOTのサークル概要をご紹介。</p>
+          <Button name="more" href="/about" style={aboutButton} />
+        </div>
+        <img src="/public/placeholder-hero.jpg" alt="" />
+      </div>
+    </section>
+    <section id="about">
+      <div class="flex-section jsutify-space-around align-item-center">
+      <div class="flex jsutify-center">
+        <WorksSlider client:only="react"/>
+      </div>
+        <div class="text-align-center">
+          <h3>開発物</h3>
+          <h2>WORKS</h2>
+          <p>アプリや事業など<br />PLOTの開発物をご紹介</p>
+          <Button name="more" href="/works" style={aboutButton} />
+        </div>
+      </div>
+    </section>
+
     <Footer />
-  </body>
-</html>
+  </main>
+</body>

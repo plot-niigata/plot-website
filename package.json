@@ -8,7 +8,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "check": "astro check && tsc --noEmit"
+    "check": "astro check && tsc --noEmit",
+    "fmt": "astro prettier -w ."
   },
   "dependencies": {
     "@astrojs/mdx": "^0.11.1",
@@ -16,12 +17,15 @@
     "@astrojs/rss": "^1.0.0",
     "@astrojs/sitemap": "^1.0.0",
     "@fontsource/noto-sans-jp": "^4.5.11",
+    "@splidejs/react-splide": "^0.7.10",
+    "@splidejs/splide": "^4.0.17",
     "astro": "^1.1.5",
     "prettier": "^2.7.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@astrojs/image": "^0.7.0"
+    "@astrojs/image": "^0.7.0",
+    "prettier-plugin-astro": "^0.5.4"
   }
 }

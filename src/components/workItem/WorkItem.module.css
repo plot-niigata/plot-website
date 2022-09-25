@@ -1,11 +1,14 @@
 .card-container{
+  margin: 1em 2em;
+  width: 35em;
+  height: 40em;
   box-shadow: 5px 5px 10px  gray ;
   border-radius: 10px;
   transition-duration: 0.3s;
 }
 .card-container:hover{
-  transform: scale(1.01);
-  transition-duration: 0.3s;
+  transform: scale(1.01); 
+   tansition-duration: 0.3s;
 }
 .card-header{
   padding: 0em 0.8em;
@@ -49,7 +52,8 @@
   margin-left: auto;
   margin-top: 3em;
 }
-.link{
+
+.link {
   font-weight: bolder;
   padding: 0.5em 0.8em;
   color: white;
