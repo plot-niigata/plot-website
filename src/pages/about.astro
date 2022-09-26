@@ -1,11 +1,20 @@
 ---
 import AboutCard from "../components/AboutCard.astro";
+import AboutCardList from "../components/AboutCardList.astro";
 import Active from "../components/Active.astro";
+import ActiveList from "../components/ActiveList.astro";
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import PageDetail from "../components/PageDetail.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+const apiUrl = "https://prm2ykvwe8.microcms.io/api/v1/about";
+const baseHeaders = {
+  headers: { "X-MICROCMS-API-KEY": "e5286cb7434f40bcbaca4b625c68f8a974a4" },
+};
+const response = await fetch(apiUrl, baseHeaders);
+const about = await response.json().then((data) => data);
+console.log(about)
 ---
 
 <!DOCTYPE html>
@@ -16,90 +25,13 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
   <Header title={SITE_TITLE} />
 
   <PageDetail
-    title={"ABOUT"}
-    subTitle={"PLOTについて"}
-    descriptions={[
-      "あなたの必要なスキルは何ですか？",
-      "PLOTは沢山の情報を仲間と共有し合い、一人ひとりが成長できる場所となるように、エンジニアを目指す新潟大学生を中心に運営しているプログラミングサークルです。",
-      "スキルの向上はもちろん、分野問わず交流できるように活動をしています。また、学外の方でも気軽に参加できるようにオンラインでの活動も行っています。",
-    ]}
+    title={about.pageDetail.title}
+    subTitle={about.pageDetail.subTitle}
+    descriptions={about.pageDetail.descriptions}
   />
-  <section class="card-section">
-    <div class="card-container">
-      <AboutCard
-        title={"競技プログラミング"}
-        logo={"/public/favicon.svg"}
-        link={"a"}
-      />
-      <AboutCard
-        title={"競技プログラミング"}
-        logo={"/public/favicon.svg"}
-        link={"a"}
-      />
-      <AboutCard
-        title={"競技プログラミング"}
-        logo={"/public/favicon.svg"}
-        link={"a"}
-      />
-      <AboutCard
-        title={"競技プログラミング"}
-        logo={"/public/favicon.svg"}
-        link={"a"}
-      />
-      <AboutCard
-        title={"競技プログラミング"}
-        logo={"/public/favicon.svg"}
-        link={"a"}
-      />
-      <AboutCard
-        title={"競技プログラミング"}
-        logo={"/public/favicon.svg"}
-        link={"a"}
-      />
-    </div>
-  </section>
-  <Active
-    title="勉強会"
-    description="プレゼンスキルを高め、人脈を広げる"
-    src="/public/placeholder-social.jpg"
-    type="active"
-  />
-  <Active
-    title="WEB"
-    description="いつでも質問できる環境がここにある"
-    src="/public/placeholder-social.jpg"
-    type="active"
-  />
-  <Active
-    title="データサイエンス"
-    description="機会学習に関する技術を身につける"
-    src="/public/placeholder-social.jpg"
-    type="active"
-  />
-  <Active
-    title="競技プログラミング"
-    description="計算量を考慮し、相手にも理解できるプログラムを目指す"
-    src="/public/placeholder-social.jpg"
-    type="active"
-  />
-  <Active
-    title="活動日程"
-    description=""
-    src="/public/placeholder-social.jpg"
-    type="calendar"
-  />
-  <style>
-    .card-section {
-      display: flex;
-      justify-content: center;
-      background-color: #f1f1f1;
-    }
-    .card-container {
-      width: 80em;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-  </style>
+  <AboutCardList aboutCards={about.aboutCard} />
+  <ActiveList activeList={about.active} />
+  <Active title="活動日程" description="" src="" type="schedule" />
+
   <Footer />
 </html>

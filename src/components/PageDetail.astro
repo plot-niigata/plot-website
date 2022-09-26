@@ -7,8 +7,8 @@ const { title, subTitle, descriptions } = Astro.props;
   <h1>{title}</h1>
   <br /><br />
   {
-    descriptions.map((description: string) => {
-      return <p>{description}</p>;
+    descriptions.map((item) => {
+      return <p>{item.description}</p>;
     })
   }
 </section>
