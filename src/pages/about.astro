@@ -6,6 +6,7 @@ import ActiveList from "../components/ActiveList.astro";
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
+import JoinClub from "../components/JoinClub.astro";
 import PageDetail from "../components/PageDetail.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 const apiUrl = "https://prm2ykvwe8.microcms.io/api/v1/about";
@@ -14,7 +15,7 @@ const baseHeaders = {
 };
 const response = await fetch(apiUrl, baseHeaders);
 const about = await response.json().then((data) => data);
-console.log(about)
+console.log(about);
 ---
 
 <!DOCTYPE html>
@@ -32,6 +33,6 @@ console.log(about)
   <AboutCardList aboutCards={about.aboutCard} />
   <ActiveList activeList={about.active} />
   <Active title="活動日程" description="" src="" type="schedule" />
-
+  <JoinClub src="/public/placeholder-hero.jpg" />
   <Footer />
 </html>
