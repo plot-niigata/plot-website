@@ -2,10 +2,21 @@
 const { title, description, src, type } = Astro.props;
 ---
 
-<section>
+<section id={type}>
   <h1>{title}</h1>
   <p>{description}</p>
-  {type == "active" ? <img src={src} alt={title} /> : <iframe src={src} />}
+  {
+    type == "schedule" ? (
+      <iframe
+        src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=Asia%2FTokyo&showTitle=1&showPrint=0&showDate=1&showTz=1&title&src=cGxvdC5uaWlnYXRhLnVuaXZAZ21haWwuY29t&src=amEuamFwYW5lc2UjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23039BE5&color=%230B8043"
+        style="border:solid 1px #777"
+        frameborder="0"
+        scrolling="no"
+      />
+    ) : (
+      <img src={src} alt={title} />
+    )
+  }
 </section>
 
 <style>
@@ -23,6 +34,11 @@ const { title, description, src, type } = Astro.props;
   img {
     display: block;
     border-radius: 2em;
+    margin: 0 auto;
+  }
+  iframe {
+    min-width: 70%;
+    display: block;
     margin: 0 auto;
   }
 </style>
