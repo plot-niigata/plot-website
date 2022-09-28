@@ -8,7 +8,7 @@
 }
 .card-container:hover{
   transform: scale(1.01); 
-   tansition-duration: 0.3s;
+  tansition-duration: 0.3s;
 }
 .card-header{
   padding: 0em 0.8em;

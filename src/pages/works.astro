@@ -6,6 +6,7 @@ import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 import type { Work } from "../types/global";
 import WorkItem from "../components/workItem/WorkItem";
+import PageDetail from "../components/PageDetail.astro";
 
 const apiUrl = "https://prm2ykvwe8.microcms.io/api/v1/works";
 const baseHeaders = {
@@ -16,11 +17,11 @@ const works = await response.json().then((data) => data.works);
 ---
 
 <style>
-  section{
-    display: flex;
+  .work-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 40em);
+    grid-auto-rows: 45em;
     justify-content: center;
-    flex-wrap: wrap;
-
   }
 </style>
 
@@ -30,11 +31,14 @@ const works = await response.json().then((data) => data.works);
   <Header title={SITE_TITLE} />
   <main>
     <section>
-      {
-        works.map((work: Work) => {
-          return <WorkItem work={work} />;
-        })
-      }
+      <PageDetail title="WORKS" subTitle="開発物" descriptions={[]} />
+      <div class="work-list">
+        {
+          works.map((work: Work) => {
+            return <WorkItem work={work} />;
+          })
+        }
+      </div>
     </section>
 
     <Footer />
