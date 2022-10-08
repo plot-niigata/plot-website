@@ -5,7 +5,7 @@ import { SITE_TITLE } from '../config';
 
 <header class="header">
   <div class="header__inner">
-    <div class="header__logo"><a href="/"><img src="/public/logo.svg"></a></div>
+    <div class="header__logo"> <img src="/public/logo.svg"></div>
     <nav>
       <ul class="header__list">
         <li class="header__item"><HeaderLink href="/">TOP</HeaderLink></li>
@@ -15,41 +15,9 @@ import { SITE_TITLE } from '../config';
       </ul>
       <!-- /.header__list -->
     </nav>
-    <div id="js-drawer-btn" class="drawer__icon">
-      <div class="drawer__bar drawer__bar-1"></div>
-      <div class="drawer__bar drawer__bar-2"></div>
-      <div class="drawer__bar drawer__bar-3"></div>
-    </div>
-    <!-- /.drawer__icon -->
   </div>
   <!-- /.header__inner -->
-  <div class="drawer__content">
-    <ul class="drawer__list">
-      <li class="drawer__item"><HeaderLink href="/">TOP</HeaderLink></li>
-      <li class="drawer__item"><HeaderLink href="/about">ABOUT</HeaderLink></li>
-      <li class="drawer__item"><HeaderLink href="/works">WORKS</HeaderLink></li>
-      <li class="drawer__item"><HeaderLink href="/inquiry">INQUIRY</HeaderLink></li>
-    </ul>
-    <!-- /.drawer__list -->
-  </div>
-  <!-- /.drawer__content -->
-  <div class="drawer__bg"></div>
 </header>
-<script>
-  window.onload = function () {
-  document.getElementById('js-drawer-btn').onclick = function () {
-    document.getElementsByClassName('header__inner')[0].classList.toggle('drawer-active');
-    document.getElementsByClassName('drawer__icon')[0].classList.toggle('drawer-active');
-    document.getElementsByClassName('drawer__bar-1')[0].classList.toggle('drawer-active');
-    document.getElementsByClassName('drawer__bar-2')[0].classList.toggle('drawer-active');
-    document.getElementsByClassName('drawer__bar-3')[0].classList.toggle('drawer-active');
-    document.getElementsByClassName('drawer__content')[0].classList.toggle('drawer-active');
-    document.getElementsByClassName('drawer__bg')[0].classList.toggle('drawer-active');
-  };
-  
-};
-</script>
-
 <style>
 	.header {
     position: fixed;
@@ -70,10 +38,6 @@ import { SITE_TITLE } from '../config';
     background-color: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     padding: 5px 0;
-  }
-  .header__inner.drawer-active {
-    background-color: none;
-    box-shadow: none;
   }
 
   .header__logo {
@@ -109,86 +73,47 @@ import { SITE_TITLE } from '../config';
     text-decoration: none;
   }
 
-  .drawer__icon {
-    display: none;
-    cursor: pointer;
-  }
-  .drawer__icon:hover {
-
-  }
-
   @media screen and (max-width: 959px) {
-    .drawer__icon {
-      width: 33px;
-      height: 35px;
-      position: relative;
-      margin-right: 27px;
-      display: block;
-    }
-  }
-  .drawer__icon.drawer-active {
+    .header {
     position: fixed;
-    top: 15px;
-    right: 40px;
-    margin-right: 0;
-  }
-  
-  .drawer__bar {
-    width: 33px;
-    height: 6px;
-    position: absolute;
     top: 0;
-    left: 50%;
     transform: translateX(-50%);
-    background-color: #12C6A8;
-    border-radius: 3px;
-    transition: all 0.5s 0s ease;
+    left: 50%;
+    width: 1341px;
+    max-width: 100%;
+    padding: 27px 45px;
+    box-sizing: border-box;
+    z-index: 999;
   }
 
-  .drawer__bar-1.drawer-active {
-    top: 50%;
-    transform: translate(-50%) rotate(135deg);
-    margin-top: 0;
+  .header__inner {
+    display: flex;
+    align-items: center;
+    border-radius: 100px;
+    justify-content: space-between;
+    background-color: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 5px 0;
   }
 
-  .drawer__bar-2 {
-    margin-top: 14px;
+  .header__logo {
+    width: 143px;
+    padding-left: 20px;
   }
-  .drawer__bar-2.drawer-active {
+
+  .header__list {
     display: none;
   }
 
-  .drawer__bar-3 {
-    margin-top: 28px;
-  }
-  .drawer__bar-3.drawer-active {
-    top: 50%;
-    transform: translate(-50%) rotate(-135deg);
-    margin-top: 0;
-  }
-
-  .drawer__content {
-    display: none;
-    transition: all 0.5s 0s ease;
-  }
-  .drawer__content.drawer-active {
-    display: block;
-  }
-
-  .drawer__list {
-    padding-left: 0;
-    margin-top: 100px;
-  }
-
-  .drawer__item {
+  .header__item {
     list-style: none;
-    text-align: center;
-  }
-  .drawer__item:not(:first-child) {
-    margin-top: 45px;
   }
 
-  .drawer__item a{
+  .header__item:not(:first-child) {
+    margin-left: 39px;
+  }
+
+  .header__item a{
     color: #565656;
     font-family: 'Inter';
     font-style: normal;
@@ -198,58 +123,9 @@ import { SITE_TITLE } from '../config';
     margin-right: 0;
   }
 
-  .drawer__item a.active {
+  .header__item a.active {
     text-decoration: none;
   }
-
-  .drawer__bg.drawer-active {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    min-height: 100vh;
-    background-color: #fff;
-    z-index: -1;
   }
 
-  /* プレイクポイント */
-  @media screen and (max-width: 959px) {
-    .header {
-      padding: 10px;
-    }
-
-    .header__inner { 
-    }
-
-    .header__logo {
-      width: 100px;
-      padding-left: 20px;
-    }
-
-    .header__list {
-      display: none;
-    }
-
-    .header__item {
-      list-style: none;
-    }
-
-    .header__item:not(:first-child) {
-      margin-left: 39px;
-    }
-
-    .header__item a{
-      color: #565656;
-      font-family: 'Inter';
-      font-style: normal;
-      font-weight: 600;
-      font-size: 20px;
-      line-height: 34px;
-      margin-right: 0;
-    }
-
-    .header__item a.active {
-      text-decoration: none;
-    }
-  }
 </style>
