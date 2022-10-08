@@ -3,20 +3,16 @@ import HeaderLink from './HeaderLink.astro';
 import { SITE_TITLE } from '../config';
 ---
 
-<header class="header">
-  <div class="header__inner">
-    <div class="header__logo"> <img src="/public/logo.svg"></div>
-    <nav>
-      <ul class="header__list">
-        <li class="header__item"><HeaderLink href="/">TOP</HeaderLink></li>
-        <li class="header__item"><HeaderLink href="/about">ABOUT</HeaderLink></li>
-        <li class="header__item"><HeaderLink href="/works">WORKS</HeaderLink></li>
-        <li class="header__item"><HeaderLink href="/inquiry">INQUIRY</HeaderLink></li>
-      </ul>
-      <!-- /.header__list -->
-    </nav>
-  </div>
-  <!-- /.header__inner -->
+<header>
+	<h2>
+		{SITE_TITLE}
+	</h2>
+	<nav>
+		<HeaderLink href="/">Home</HeaderLink>
+		<HeaderLink href="/about">About</HeaderLink>
+		<HeaderLink href="https://twitter.com/astrodotbuild" target="_blank">Twitter</HeaderLink>
+		<HeaderLink href="https://github.com/withastro/astro" target="_blank">GitHub</HeaderLink>
+	</nav>
 </header>
 <style>
 	.header {
