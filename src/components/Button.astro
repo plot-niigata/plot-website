@@ -1,30 +1,28 @@
 ---
 import type { Button } from "../types/global";
 
-
-const {name,href,style} = Astro.props as Button
+const { name, href, style } = Astro.props as Button;
 const color = style.color;
 const fontSize = style.fontSize;
 const border = style.border;
 const backgroundColor = style.backgroundColor;
-const bordreRadius = style.bordreRadius
+const bordreRadius = style.bordreRadius;
 ---
 
-<style define:vars={{color,fontSize,border,backgroundColor,bordreRadius}}>
-a{
-  text-align: center;
-  padding: 0.5em 3em;
-  margin: 0.5em 0em;
-  font-weight: bolder;
-  text-decoration: none;
-  display: inline-block;
-  color: var(--color);
-  border: var(--border);
-  background-color: var(--backgroundColor);
-  border-radius: var(--bordreRadius);
-  font-size: var(--fontSize);
-
-}
+<style define:vars={{ color, fontSize, border, backgroundColor, bordreRadius }}>
+  a {
+    text-align: center;
+    padding: 0.5em 3em;
+    margin: 0.5em 0em;
+    font-weight: bolder;
+    text-decoration: none;
+    display: inline-block;
+    color: var(--color);
+    border: var(--border);
+    background-color: var(--backgroundColor);
+    border-radius: var(--bordreRadius);
+    font-size: var(--fontSize);
+  }
 </style>
 
 <a href={href}>{name}</a>

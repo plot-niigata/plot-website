@@ -1,0 +1,35 @@
+---
+import AboutCard from "./AboutCard.astro";
+
+const { aboutCards } = Astro.props;
+---
+
+<section class="card-section">
+  <div class="card-container">
+    {
+      aboutCards.map((aboutCard) => {
+        return (
+          <AboutCard
+            title={aboutCard.title}
+            logo={aboutCard.logo.url}
+            link={aboutCard.link}
+          />
+        );
+      })
+    }
+  </div>
+</section>
+
+<style>
+  .card-section {
+    display: flex;
+    justify-content: center;
+    background-color: #f1f1f1;
+  }
+  .card-container {
+    width: 80em;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+</style>

@@ -1,0 +1,38 @@
+---
+import AboutCard from "../components/AboutCard.astro";
+import AboutCardList from "../components/AboutCardList.astro";
+import Active from "../components/Active.astro";
+import ActiveList from "../components/ActiveList.astro";
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import JoinClub from "../components/JoinClub.astro";
+import PageDetail from "../components/PageDetail.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+const apiUrl = "https://prm2ykvwe8.microcms.io/api/v1/about";
+const baseHeaders = {
+  headers: { "X-MICROCMS-API-KEY": "e5286cb7434f40bcbaca4b625c68f8a974a4" },
+};
+const response = await fetch(apiUrl, baseHeaders);
+const about = await response.json().then((data) => data);
+console.log(about);
+---
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <Header title={SITE_TITLE} />
+
+  <PageDetail
+    title={about.pageDetail.title}
+    subTitle={about.pageDetail.subTitle}
+    descriptions={about.pageDetail.descriptions}
+  />
+  <AboutCardList aboutCards={about.aboutCard} />
+  <ActiveList activeList={about.active} />
+  <Active title="活動日程" description="" src="" type="schedule" />
+  <JoinClub src="/public/placeholder-hero.jpg" />
+  <Footer />
+</html>

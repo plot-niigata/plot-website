@@ -1,0 +1,18 @@
+---
+import Active from "./Active.astro";
+
+const { activeList } = Astro.props;
+---
+
+{
+  activeList.map((activeItem) => {
+    return (
+      <Active
+        title={activeItem.title}
+        description={activeItem.description}
+        src={activeItem.src.url}
+        type={activeItem.type}
+      />
+    );
+  })
+}

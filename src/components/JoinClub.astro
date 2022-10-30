@@ -1,0 +1,62 @@
+---
+import type { Style } from "../types/global";
+import Button from "./Button.astro";
+
+const { src } = Astro.props;
+const joinButton: Style = {
+  color: "white",
+  fontSize: "x-large",
+  border: "solid 2px white",
+  bordreRadius: "0px",
+};
+---
+
+<section>
+  <div class="container">
+    <img src={src} alt="" />
+    <h1>失敗を楽しもう</h1>
+    <!-- コンポーネントにスタイルを当てられないためdivで囲む -->
+    <div>
+      <Button name="入部する" href="sa" style={joinButton} />
+    </div>
+  </div>
+</section>
+<style>
+  section{
+    margin: 10em auto;
+  }
+  .container {
+    position: relative;
+    margin: auto 2em;
+  }
+
+  .container img,
+  h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    font-size: 2em;
+    font-weight: bold;
+    color: white;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .container h1 {
+    font-size: xx-large;
+  }
+
+  .container div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, 80%);
+    -webkit-transform: translate(-50%, 80%);
+    transform: translate(-50%, 80%);
+  }
+</style>
