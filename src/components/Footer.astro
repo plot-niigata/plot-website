@@ -2,12 +2,66 @@
 const today = new Date();
 ---
 
-<footer>
-	&copy; {today.getFullYear()} YOUR NAME HERE. All rights reserved.
+<footer class="footer">
+  <div class="footer__inner">
+    <h2 class="footer__ttl">PLOT</h2>
+    <div class="footer__flex">
+      <a href="https://twitter.com/plot_niigata" class="footer__link"><img src="/public/icon-twitter.svg" alt=""></a>
+      <a href="https://github.com/plot-niigata" class="footer__link"><img src="/public/icon-github.svg" alt=""></a>
+    </div>
+    <!-- /.footer__flex -->
+    <p class="footer__copyright">Copyright &copy; {today.getFullYear()} PLOT</p>
+  </div>
+  <!-- /.footer__inner -->
+
 </footer>
 <style>
-	footer {
-		padding: 25px;
-		text-align: center;
-	}
+  .footer {
+    background-color: #000;
+  }
+
+  .footer__inner {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px 15px;
+  }
+
+  .footer__ttl {
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 48px;
+    text-align: center;
+    letter-spacing: 0.15em;
+    color: #FFFFFF;
+    margin: 0;
+  }
+
+  .footer__flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+  }
+
+  .footer__link {
+    width: 64px;
+    height: 64px;
+  }
+
+  .footer__link:not(:first-child) {
+    margin-left: 43px;
+  }
+
+  .footer__copyright {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    color: #FFFFFF;
+    margin-top: 60px;
+  }
+
+
 </style>

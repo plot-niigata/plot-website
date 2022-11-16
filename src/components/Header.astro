@@ -15,10 +15,114 @@ import { SITE_TITLE } from '../config';
 	</nav>
 </header>
 <style>
-	header {
-		margin: 0em 0 2em;
-	}
-	h2 {
-		margin: 0.5em 0;
-	}
+	.header {
+    position: fixed;
+    top: 0;
+    transform: translateX(-50%);
+    left: 50%;
+    width: 1341px;
+    max-width: 100%;
+    padding: 27px 25px;
+    box-sizing: border-box;
+    z-index: 999;
+  }
+
+  .header__inner {
+    display: flex;
+    align-items: center;
+    border-radius: 100px;
+    justify-content: space-between;
+    background-color: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 5px 0;
+  }
+
+  .header__logo {
+    width: 143px;
+    padding-left: 20px;
+  }
+
+  .header__list {
+    display: flex;
+    padding-left: 0;
+    padding-right: 20px;
+  }
+
+  .header__item {
+    list-style: none;
+  }
+
+  .header__item:not(:first-child) {
+    margin-left: 39px;
+  }
+
+  .header__item a{
+    color: #565656;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 34px;
+    margin-right: 0;
+  }
+
+  .header__item a.active {
+    text-decoration: none;
+  }
+
+  @media screen and (max-width: 959px) {
+    .header {
+    position: fixed;
+    top: 0;
+    transform: translateX(-50%);
+    left: 50%;
+    width: 1341px;
+    max-width: 100%;
+    padding: 27px 45px;
+    box-sizing: border-box;
+    z-index: 999;
+  }
+
+  .header__inner {
+    display: flex;
+    align-items: center;
+    border-radius: 100px;
+    justify-content: space-between;
+    background-color: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 5px 0;
+  }
+
+  .header__logo {
+    width: 143px;
+    padding-left: 20px;
+  }
+
+  .header__list {
+    display: none;
+  }
+
+  .header__item {
+    list-style: none;
+  }
+
+  .header__item:not(:first-child) {
+    margin-left: 39px;
+  }
+
+  .header__item a{
+    color: #565656;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 34px;
+    margin-right: 0;
+  }
+
+  .header__item a.active {
+    text-decoration: none;
+  }
+  }
+
 </style>
