@@ -1,10 +1,16 @@
 ---
+import Link from "./Link.astro";
 const today = new Date();
+
 ---
 
 <footer class="footer">
   <div class="footer__inner">
     <h2 class="footer__ttl">PLOT</h2>
+    <div class="footer__flex ">
+      <Link href="/" class="footer__link-color">Home</Link>
+      <Link href="/about" class="footer__link-color">About</Link>  
+    </div>
     <div class="footer__flex">
       <a href="https://twitter.com/plot_niigata" class="footer__link"><img src="/public/icon-twitter.svg" alt=""></a>
       <a href="https://github.com/plot-niigata" class="footer__link"><img src="/public/icon-github.svg" alt=""></a>
@@ -23,7 +29,7 @@ const today = new Date();
   .footer__inner {
     max-width: 800px;
     margin: 0 auto;
-    padding: 30px 15px;
+    padding: 10px 15px;
   }
 
   .footer__ttl {
@@ -40,12 +46,21 @@ const today = new Date();
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 30px;
+    margin: 20px auto;
+  }
+
+  .footer__flex > a{ 
+    margin: 0 10px;
   }
 
   .footer__link {
-    width: 64px;
-    height: 64px;
+    width: 32px;
+    height: 32px;
+  
+  }
+
+  .footer__link-color {
+    color: white;
   }
 
   .footer__link:not(:first-child) {
@@ -56,11 +71,11 @@ const today = new Date();
     font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
-    font-size: 24px;
+    font-size: 12px;
     line-height: 29px;
     text-align: center;
     color: #FFFFFF;
-    margin-top: 60px;
+    /* margin-top: 60px; */
   }
   
 </style>
