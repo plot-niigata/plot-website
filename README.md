@@ -1,5 +1,9 @@
 # 環境構築ドキュメント
 
+### デザインカンプ
+[PLOT Webサイト(Figma)](https://www.figma.com/design/uXc1ERKxni1Nxn04D2zStm/PLOT-WEB%E3%82%B5%E3%82%A4%E3%83%88?node-id=0-1&t=Ur5z5jUVzEZI3L0P-1)
+※権限は個別で付与します
+
 ### Node.jsのインストール
 * バージョンv18.14.1以降のNode.jsをインストールします。以下のコマンドでNode.jsがインストールしているか、確認できます。
 ```
